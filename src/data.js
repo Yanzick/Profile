@@ -231,7 +231,7 @@ export const projects = [
         "organization": "GoLabs",
         "title": "First GoAFC Production Rollout",
         "focusRole": "Deployment Coordination & Go-live Control",
-        "description": "Launched GoAFC and T10 devices on approximately 500 buses across 10 Ho Chi Minh City routes, supporting Mastercard and NAPAS cashless payments.",
+        "description": "Launched GoAFC and T10 devices on approximately 500 buses across 10 Ho Chi Minh City routes, supporting Mastercard and Visa cashless payments.",
         "responsibilities": [
           "Coordinated technical, development, deployment, and transport-operation teams during rollout.",
           "Validated end-to-end ticketing and payment flows before production launch.",
@@ -310,18 +310,19 @@ export const projects = [
         "outcome": "Maintained project continuity and preserved key operational and technical knowledge during the transition."
       },
       {
-        "period": "Dec 2025 — Mar 2026",
+        "period": "12/2025 — 03/2026",
         "organization": "VSF",
-        "title": "FUTA Deployment & Multi-wallet Expansion",
-        "focusRole": "Payment Integration & Delivery Coordination",
-        "description": "Completed deployment for FUTA while expanding GoAFC with Viettel Money, ZaloPay, and ShopeePay.",
+        "title": "FUTA Deployment — Scaling GoAFC to 2,000+ Buses in Ho Chi Minh City & Expanding Multi-Wallet Payments",
+        "focusRole": "Payment Integration & Deployment Coordination",
+        "description": "Contributed to the GoAFC deployment for FUTA, scaling operations to more than 2,000 buses in Ho Chi Minh City and expanding payment options through Viettel Money, ZaloPay, and ShopeePay.",
         "responsibilities": [
-          "Defined and clarified payment transaction flows for each wallet integration.",
-          "Coordinated requirements between payment partners, developers, POS teams, and operations.",
-          "Prepared functional and exception test scenarios.",
-          "Tracked integration issues through testing and production rollout."
+          "Analyzed, defined, and clarified transaction flows for each payment method and related exception scenarios.",
+          "Coordinated technical requirements across payment partners, Backend, POS, and operations teams.",
+          "Developed test scenarios for payment flows, error handling, and abnormal transaction cases.",
+          "Tracked, analyzed, and coordinated the resolution of integration issues throughout testing, rollout, and production operations.",
+          "Supported device deployment coordination and system stability validation during large-scale rollout."
         ],
-        "outcome": "Expanded GoAFC into a multi-wallet payment platform while completing rollout across targeted Ho Chi Minh City operators."
+        "outcome": "Completed the GoAFC rollout for FUTA, contributing to the expansion of the platform to more than 2,000 buses in Ho Chi Minh City and strengthening its multi-wallet, multi-partner payment capability."
       },
       {
         "period": "Jan 2026 — May 2026",

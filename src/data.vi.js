@@ -246,7 +246,7 @@ export const projects = [
         "organization": "GoLabs",
         "title": "Triển khai production GoAFC đầu tiên",
         "focusRole": "Điều phối triển khai & kiểm soát go-live",
-        "description": "Triển khai GoAFC và thiết bị T10 trên khoảng 500 xe thuộc 10 tuyến xe buýt tại TP.HCM, hỗ trợ thanh toán không tiền mặt qua Mastercard và NAPAS.",
+        "description": "Triển khai GoAFC và thiết bị T10 trên khoảng 500 xe thuộc 10 tuyến xe buýt tại TP.HCM, hỗ trợ thanh toán không tiền mặt qua Mastercard và Visa.",
         "responsibilities": [
           "Điều phối giữa các nhóm kỹ thuật, phát triển, triển khai và đơn vị vận tải trong quá trình rollout.",
           "Xác thực luồng bán vé và thanh toán end-to-end trước khi đưa vào production.",
