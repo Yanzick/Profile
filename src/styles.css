@@ -1069,22 +1069,38 @@ button, input, textarea { font: inherit; }
   .topbar { width: min(100% - 28px, 1160px); }
   .topbar { height: 72px; }
   .menu-button { display: grid; place-items: center; }
-  .nav {
-    position: absolute;
-    left: 14px;
-    right: 14px;
-    top: 64px;
-    display: none;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-    padding: 10px;
-    background: rgba(8,19,20,.96);
-    border: 1px solid var(--line);
-    border-radius: 16px;
-    box-shadow: 0 24px 50px rgba(0,0,0,.28);
+@media (max-width: 768px) {
+    .nav {
+      position: absolute;
+      top: 68px;
+      left: 16px;
+      right: 16px;
+
+      display: none;
+      flex-direction: column;
+      align-items: stretch;
+
+      padding: 12px;
+
+      border-radius: 20px;
+
+      background:  #f9fdfc;
+      border: 1px solid rgba(22, 184, 137, 0.10);
+
+      box-shadow:
+        0 18px 40px rgba(25, 60, 64, 0.10),
+        0 4px 12px rgba(25, 60, 64, 0.06);
+
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+
+      z-index: 50;
+    }
+
+    .nav.open {
+      display: flex;
+    }
   }
-  .nav.open { display: flex; }
   .nav a { padding: 13px 12px; border-radius: 10px; }
   .nav a:hover { background: rgba(255,255,255,.04); }
 
@@ -3155,5 +3171,596 @@ body {
 
   .portrait-glow {
     animation: none;
+  }
+}
+
+/* =========================================================
+   FINAL SPACING FIX
+   Compact hero pillars + about stats + reduce empty vertical space
+   ========================================================= */
+
+/* --- Hero: reduce the large blank space before About --- */
+.hero {
+  min-height: auto !important;
+  padding-top: 64px !important;
+  padding-bottom: 56px !important;
+}
+
+#about {
+  padding-top: 64px !important;
+}
+
+/* --- PRODUCT / TECHNICAL / OPERATIONS --- */
+.about-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+
+  /* Keep the cards close to the location row */
+  margin-top: 24px;
+
+  width: 100%;
+  max-width: 720px;
+}
+
+.about-pillar-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 9px;
+
+  min-width: 0;
+  min-height: 96px;
+
+  padding: 17px 16px 15px;
+
+  border-radius: 16px;
+  border: 1px solid rgba(22, 184, 137, 0.15);
+
+  background: rgba(255, 255, 255, 0.84);
+
+  box-shadow: 0 10px 28px rgba(28, 82, 84, 0.055);
+
+  overflow: hidden;
+}
+
+/* small accent line, no empty decorative area */
+.about-pillar-card::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 16px;
+
+  width: 36px;
+  height: 3px;
+
+  border-radius: 0 0 999px 999px;
+
+  background: linear-gradient(
+    90deg,
+    #16b889,
+    #20aaa5
+  );
+}
+
+.about-pillar-title {
+  display: block;
+
+  margin: 0;
+  padding-top: 2px;
+
+  color: #0a5d50;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  line-height: 1.25;
+  letter-spacing: 0.055em;
+
+  text-transform: uppercase;
+}
+
+.about-pillar-description {
+  display: block;
+
+  margin: 0;
+
+  color: #58757b;
+
+  font-size: 10.5px;
+  font-weight: 500;
+
+  line-height: 1.5;
+
+  overflow-wrap: anywhere;
+}
+
+/* --- About: make heading/content feel connected --- */
+#about .section-heading {
+  margin-bottom: 28px !important;
+}
+
+.about-grid {
+  gap: 24px !important;
+}
+
+/* --- 3+ / 5+ / 10+: remove the empty middle space --- */
+.stats-grid {
+  gap: 10px !important;
+}
+
+.stats-grid .stat-card {
+  min-height: 118px !important;
+
+  padding: 18px 16px 16px !important;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start !important;
+
+  gap: 9px;
+
+  border-radius: 17px;
+}
+
+.stats-grid .stat-card strong {
+  display: block;
+
+  margin: 0 !important;
+
+  color: #0b292e;
+
+  font-size: 29px !important;
+  font-weight: 800 !important;
+
+  line-height: 1 !important;
+  letter-spacing: -0.04em;
+}
+
+.stats-grid .stat-card span {
+  display: block;
+
+  margin: 0 !important;
+
+  color: #58757b !important;
+
+  font-size: 10.5px !important;
+  font-weight: 600;
+
+  line-height: 1.45 !important;
+}
+
+/* --- Slightly tighter general rhythm on desktop --- */
+@media (min-width: 1101px) {
+  .section {
+    padding-top: 82px;
+    padding-bottom: 82px;
+  }
+
+  #about {
+    padding-top: 58px !important;
+  }
+}
+
+/* --- Tablet --- */
+@media (max-width: 1100px) {
+  .hero {
+    padding-top: 48px !important;
+    padding-bottom: 44px !important;
+  }
+
+  #about {
+    padding-top: 52px !important;
+  }
+
+  .about-pillars {
+    max-width: 780px;
+  }
+}
+
+/* --- Mobile --- */
+@media (max-width: 720px) {
+  .hero {
+    padding-top: 34px !important;
+    padding-bottom: 38px !important;
+  }
+
+  #about {
+    padding-top: 48px !important;
+  }
+
+  .about-pillars {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .about-pillar-card {
+    min-height: 0;
+    padding: 16px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+
+  .stats-grid .stat-card {
+    min-height: 106px !important;
+    padding: 15px 12px !important;
+  }
+
+  .stats-grid .stat-card strong {
+    font-size: 25px !important;
+  }
+
+  .stats-grid .stat-card span {
+    font-size: 9.5px !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .stats-grid .stat-card {
+    min-height: 0 !important;
+  }
+}
+
+
+/* =========================================================
+   EXPERIENCE TIMELINE — ORGANIZATION LOGO NODES
+   Replaces the small dots with green circular logo nodes.
+   ========================================================= */
+
+/* =========================================================
+   JOURNEY / EXPERIENCE TIMELINE - REFINED
+   ========================================================= */
+
+/* ===== Refined Journey Timeline ===== */
+
+/* =========================================
+   TIMELINE LOGO NODE — COMPACT VERSION
+   Giữ style cũ, chỉ bóp gọn node logo
+   ========================================= */
+
+/* line timeline giữ nguyên, chỉ chỉnh vị trí cho khớp node nhỏ hơn */
+/* =========================================================
+   FIX JOURNEY TIMELINE LINE
+   1 rail duy nhất, căn chính giữa logo
+   ========================================================= */
+
+.timeline {
+  position: relative;
+}
+
+/* Xóa các segmented line cũ */
+.timeline-item::before,
+.timeline-item::after {
+  display: none !important;
+}
+
+/* Đường timeline duy nhất */
+.timeline::before {
+  content: "";
+
+  position: absolute;
+
+  /* node: left 117px + 42px / 2 = 138px */
+  left: 138px !important;
+
+  /* bắt đầu gần tâm node đầu */
+  top: 22px !important;
+
+  /* kết thúc tại node cuối */
+  bottom: 22px !important;
+
+  width: 2px !important;
+
+  transform: translateX(-50%);
+
+  border-radius: 999px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(22, 184, 137, 0.24),
+    rgba(22, 184, 137, 0.34),
+    rgba(22, 184, 137, 0.24)
+  ) !important;
+
+  z-index: 0;
+}
+
+
+/* =========================================================
+   LOGO NODE
+   ========================================================= */
+
+.timeline-logo-node {
+  position: absolute;
+
+  left: 117px !important;
+  top: 2px !important;
+
+  width: 42px !important;
+  height: 42px !important;
+
+  z-index: 3;
+
+  display: grid;
+  place-items: center;
+
+  padding: 5px;
+
+  border-radius: 50%;
+
+  background: #dff7ef !important;
+
+  border: 1px solid #aee5d5 !important;
+
+  box-shadow:
+    0 4px 10px rgba(22, 184, 137, 0.07) !important;
+
+  overflow: hidden;
+}
+
+
+/* bỏ decoration cũ */
+.timeline-logo-node::before,
+.timeline-logo-node::after {
+  display: none !important;
+}
+
+
+/* logo xanh đậm */
+.timeline-logo-node img {
+  position: relative;
+  z-index: 2;
+
+  width: 76% !important;
+  height: 76% !important;
+
+  display: block;
+
+  object-fit: contain;
+  object-position: center;
+
+  mix-blend-mode: normal !important;
+
+  filter:
+    brightness(0)
+    saturate(100%)
+    invert(27%)
+    sepia(32%)
+    saturate(1050%)
+    hue-rotate(118deg)
+    brightness(88%)
+    contrast(94%) !important;
+
+  opacity: 1;
+}
+
+
+/* =========================================================
+   TIMELINE LAYOUT
+   ========================================================= */
+
+.timeline-item {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    106px
+    minmax(0, 1fr) !important;
+
+  gap: 64px !important;
+
+  align-items: start;
+}
+
+.timeline-period {
+  padding-top: 6px;
+
+  text-align: right;
+
+  color: #69858a;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  line-height: 1.45;
+}
+
+.timeline-content {
+  padding-left: 6px;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .timeline::before {
+    left: 19px !important;
+
+    top: 21px !important;
+    bottom: 21px !important;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr !important;
+
+    gap: 8px !important;
+
+    padding-left: 60px !important;
+  }
+
+  .timeline-logo-node {
+    left: -1px !important;
+    top: 2px !important;
+
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  .timeline-period {
+    padding-top: 0;
+
+    text-align: left;
+  }
+
+  .timeline-content {
+    padding-left: 0;
+  }
+}
+/* =========================================
+   TIMELINE LOGO NODE — MASTER BADGE STYLE
+   ========================================= */
+
+.timeline-logo-node {
+  position: absolute;
+  z-index: 3;
+
+  left: 117px;
+  top: 2px;
+
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  padding: 5px;
+
+  border-radius: 50%;
+
+  background: rgba(22, 184, 137, 0.10);
+
+  border: 1px solid rgba(22, 184, 137, 0.22);
+
+  box-shadow:
+    0 4px 10px rgba(22, 184, 137, 0.06);
+
+  overflow: hidden;
+}
+
+/* bỏ vòng xanh đậm cũ */
+.timeline-logo-node::before,
+.timeline-logo-node::after {
+  display: none !important;
+}
+
+/* logo chuyển thành xanh đậm */
+.timeline-logo-node img {
+  position: relative;
+  z-index: 2;
+
+  width: 78%;
+  height: 78%;
+
+  object-fit: contain;
+  object-position: center;
+
+  display: block;
+
+  /* đổi toàn bộ logo về xanh đậm */
+  filter:
+    brightness(0)
+    saturate(100%)
+    invert(29%)
+    sepia(22%)
+    saturate(1180%)
+    hue-rotate(118deg)
+    brightness(92%)
+    contrast(91%);
+
+  mix-blend-mode: normal;
+
+  opacity: 1;
+}
+
+/* hover nhẹ */
+.timeline-item:hover .timeline-logo-node {
+  background: rgba(22, 184, 137, 0.14);
+
+  border-color: rgba(22, 184, 137, 0.30);
+
+  box-shadow:
+    0 6px 14px rgba(22, 184, 137, 0.08);
+}
+
+/* =========================================================
+   REMOVE THE EXTRA SECTION ANIMATION LAYER
+   Keep only the original .reveal / .reveal.visible transition.
+   Paste at the END of styles.css if you previously added
+   section-scroll-effects.css.
+   ========================================================= */
+
+.section-motion.section-in-view .section-heading,
+.section-motion.section-in-view .about-grid,
+.section-motion.section-in-view .skills-wrap,
+.section-motion.section-in-view .project-grid,
+.section-motion.section-in-view .timeline,
+.section-motion.section-in-view .deployment-links-grid,
+.section-motion.section-in-view .contact-card,
+.section-motion.section-click-focus .section-heading,
+.section-motion.section-in-view .eyebrow {
+  animation: none !important;
+}
+
+/* Keep the active navigation indication only. */
+.nav a.active {
+  color: #0b7f68 !important;
+  background: rgba(22, 184, 137, 0.10) !important;
+  box-shadow: inset 0 0 0 1px rgba(22, 184, 137, 0.16);
+}
+
+/* Existing reveal remains the only motion source. */
+.reveal {
+  transition:
+    opacity 0.82s cubic-bezier(.22, 1, .36, 1),
+    transform 0.82s cubic-bezier(.22, 1, .36, 1) !important;
+}
+
+/* =========================================================
+   FIX HERO BADGE #3
+   Embedded Systems nằm dưới avatar, trên Focus Areas
+   ========================================================= */
+
+.floating-code {
+  z-index: 6 !important;
+}
+
+.hero-quick-panel {
+  z-index: 4 !important;
+}
+
+/* nút thứ 3 */
+.code-c {
+  left: 90px;
+  top: 335px !important;
+
+  right: auto !important;
+  bottom: auto !important;
+
+  transform: translateX(-50%) !important;
+  color: #168465 !important;
+}
+
+
+/* tablet / mobile */
+@media (max-width: 720px) {
+  .code-c {
+    left: calc(50% - 24px) !important;
+    top: 350px !important;
+    transform: translateX(-50%) !important;
   }
 }

@@ -109,6 +109,20 @@ export const profile = {
       "label": "Tools & technologies"
     }
   ],
+  "stats2": [
+    {
+      "label": "PRODUCT",
+      "description": "Requirement · Workflow · UI/UX"
+    },
+    {
+      "label": "TECHNICAL",
+      "description": "Integration · IoT · Troubleshooting"
+    },
+    {
+      "label": "OPERATIONS",
+      "description": "Deployment · Testing · Production"
+    }
+  ],
   "focusAreas": [
     "Smart Mobility",
     "System Integration",
@@ -174,7 +188,7 @@ export const skills = [
     "group": "Product"
   },
   {
-    "name": "Project & Technical Documentation",
+    "name": "Information Security",
     "level": "Advanced",
     "group": "Documentation"
   }
@@ -636,9 +650,9 @@ export const projects = [
       {
         "period": "Aug 2026 — Present",
         "organization": "VSF",
-        "title": "Production Deployment — VinBus School Bus Quảng Ninh",
+        "title": "Production Deployment — VinBus School Bus Quang Ninh",
         "focusRole": "Deployment & Operations Control",
-        "description": "Moved the School Bus solution from pilot into real-world operation for VinBus School Bus services in Quảng Ninh.",
+        "description": "Moved the School Bus solution from pilot into real-world operation for VinBus School Bus services in Quang Ninh.",
         "responsibilities": [
           "Supported production deployment and operational handover.",
           "Monitored real-world application behavior after rollout.",
@@ -687,7 +701,7 @@ export const deploymentLinks = [
   {
     id: 'goafc-cashless-payment',
     project: 'GoAFC',
-    source: 'Tuổi Trẻ / PLO',
+    source: 'Tuoi Tre / PLO',
     title: '102 Ho Chi Minh City bus routes adopt cashless payment',
     description:
       'Public coverage of the city-wide rollout of contactless and cashless fare payment across bus operations.',
@@ -708,7 +722,7 @@ export const deploymentLinks = [
   {
     id: 'hcmc-free-bus-fare',
     project: 'GoAFC · Free Fare Program',
-    source: 'Tuổi Trẻ',
+    source: 'Tuoi Tre',
     title: 'Ho Chi Minh City launches free bus fares',
     description:
       'Coverage of the free-fare rollout, electronic passenger validation, T10 devices, and production operations across the bus network.',
@@ -718,38 +732,45 @@ export const deploymentLinks = [
   {
     id: 'quang-ninh-school-bus',
     project: 'School Bus',
-    source: 'Lao Động',
-    title: 'Quảng Ninh launches six free electric school-bus routes',
+    source: 'Lao Dong',
+    title: 'Quang Ninh launches six free electric school-bus routes',
     description:
-      'Public coverage of the electric school-bus service deployed for student transportation in Quảng Ninh.',
+      'Public coverage of the electric school-bus service deployed for student transportation in Quang Ninh.',
     url: 'https://amp.laodong.vn/giao-duc/quang-ninh-khai-truong-6-tuyen-xe-buyt-dien-mien-phi-dua-don-hoc-sinh-1760970.ldo',
   },
 ]
 
 export const experience = [
   {
-    "period": "2020 — 2024",
-    "role": "Embedded Systems Student",
-    "company": "University of Science — VNU-HCM",
-    "description": "Studied Electronics & Telecommunications with a focus on Embedded Computer Systems, building a foundation in C/C++, microcontrollers, hardware integration, networking, and embedded software development."
+    period: '2020 — 2024',
+    title: 'Embedded Systems Student',
+    organization: 'University of Science – VNU-HCM',
+    logo: '/assets/HCMUS.png',
+    description:
+      'Studied Electronics & Telecommunications with a focus on Embedded Computer Systems, building a foundation in C/C++, microcontrollers, hardware integration, networking, and embedded software development.',
   },
   {
-    "period": "Jun 2024 — Oct 2024",
-    "role": "Hardware Technician",
-    "company": "PHA Distribution",
-    "description": "Worked on hardware integration and technical support, including a truck camera monitoring solution, remote-control devices, customer coordination, field installation, and pilot deployment."
+    period: 'Jun 2024 — Oct 2024',
+    title: 'Hardware Technician',
+    organization: 'PHA Distribution',
+    logo: '/assets/PHA.png',
+    description:
+      'Worked on hardware integration and technical support, including a truck camera monitoring solution, remote-control devices, customer coordination, field installation, and pilot deployment.',
   },
   {
-    "period": "Dec 2024 — Dec 2025",
-    "role": "IoT Engineer / Technical Specialist",
-    "company": "GoLabs",
-    "description": "Worked across IoT, embedded systems, smart mobility, and AFC projects, covering hardware and software development, system integration, technical support, deployment, testing, and production operations."
+    period: 'Dec 2024 — Dec 2025',
+    title: 'IoT Engineer / Technical Specialist',
+    organization: 'GoLabs',
+    logo: '/assets/golabs.png',
+    description:
+      'Worked across IoT, embedded systems, smart mobility, and AFC projects, covering hardware and software development, system integration, technical support, deployment, testing, and production operations.',
   },
   {
-    "period": "Dec 2025 — Present",
-    "role": "Product & Technical Specialist",
-    "company": "VSF",
-    "description": "Working across product, technical, and operational domains — analyzing requirements, designing workflows, coordinating development and integration, supporting deployment, and improving production systems."
-  }
+    period: 'Dec 2025 — Present',
+    title: 'Product & Technical Specialist',
+    organization: 'Vin Smart Future',
+    logo: '/assets/VSF-short.png',
+    description:
+      'Working across product, technical, and operational domains — analyzing requirements, designing workflows, coordinating development and integration, supporting deployment, and improving production systems.',
+  },
 ]
-

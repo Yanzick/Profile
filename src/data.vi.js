@@ -124,6 +124,20 @@ export const profile = {
       "label": "Công cụ & công nghệ"
     }
   ],
+  "stats2": [
+    {
+      "label": "SẢN PHẨM",
+      "description": "Yêu cầu · Quy trình · UI/UX"
+    },
+    {
+      "label": "KỸ THUẬT",
+      "description": "Tích hợp · IoT · Xử lý sự cố"
+    },
+    {
+      "label": "VẬN HÀNH",
+      "description": "Triển khai · Kiểm thử · Production"
+    }
+  ],
   "focusAreas": [
     "Giao thông thông minh",
     "Tích hợp hệ thống",
@@ -189,7 +203,7 @@ export const skills = [
     "group": "Sản phẩm"
   },
   {
-    "name": "Tài liệu dự án & kỹ thuật",
+    "name": "An toàn thông tin",
     "level": "Advanced",
     "group": "Tài liệu"
   }
@@ -742,27 +756,35 @@ export const deploymentLinks = [
 ]
 export const experience = [
   {
-    "period": "2020 — 2024",
-    "role": "Sinh viên chuyên ngành Hệ thống máy tính nhúng",
-    "company": "Trường Đại học Khoa học Tự nhiên — ĐHQG-HCM",
-    "description": "Học ngành Điện tử Viễn thông với định hướng Hệ thống máy tính nhúng, xây dựng nền tảng về C/C++, vi điều khiển, tích hợp phần cứng, mạng và phát triển phần mềm nhúng."
+    period: '2020 — 2024',
+    title: 'Sinh viên Hệ thống Nhúng',
+    organization: 'Trường Đại học Khoa học Tự nhiên – ĐHQG-HCM',
+    logo: '/assets/HCMUS.png',
+    description:
+      'Học ngành Điện tử Viễn thông theo định hướng Hệ thống nhúng, xây dựng nền tảng về C/C++, vi điều khiển, tích hợp phần cứng, mạng và phát triển phần mềm nhúng.',
   },
   {
-    "period": "06/2024 — 10/2024",
-    "role": "Kỹ thuật viên phần cứng",
-    "company": "PHA Distribution",
-    "description": "Tham gia tích hợp phần cứng và hỗ trợ kỹ thuật, bao gồm giải pháp camera giám sát xe tải, thiết bị điều khiển từ xa, phối hợp khách hàng, lắp đặt hiện trường và triển khai pilot."
+    period: '06/2024 — 10/2024',
+    title: 'Kỹ thuật viên phần cứng',
+    organization: 'PHA Distribution',
+    logo: '/assets/PHA.png',
+    description:
+      'Tham gia tích hợp phần cứng và hỗ trợ kỹ thuật, bao gồm giải pháp camera giám sát xe tải, thiết bị điều khiển từ xa, phối hợp khách hàng, lắp đặt thực địa và triển khai pilot.',
   },
   {
-    "period": "12/2024 — 12/2025",
-    "role": "IoT Engineer / Chuyên viên kỹ thuật",
-    "company": "GoLabs",
-    "description": "Làm việc trên các dự án IoT, hệ thống nhúng, giao thông thông minh và AFC, bao gồm phát triển phần cứng/phần mềm, tích hợp hệ thống, hỗ trợ kỹ thuật, triển khai, kiểm thử và vận hành production."
+    period: '12/2024 — 12/2025',
+    title: 'Kỹ sư IoT / Chuyên viên kỹ thuật',
+    organization: 'GoLabs',
+    logo: '/assets/golabs.png',
+    description:
+      'Tham gia các dự án IoT, hệ thống nhúng, giao thông thông minh và AFC, bao gồm phát triển phần cứng/phần mềm, tích hợp hệ thống, hỗ trợ kỹ thuật, triển khai, kiểm thử và vận hành production.',
   },
   {
-    "period": "12/2025 — Hiện tại",
-    "role": "Chuyên viên Sản phẩm & Kỹ thuật",
-    "company": "VSF",
-    "description": "Làm việc xuyên suốt các mảng sản phẩm, kỹ thuật và vận hành — phân tích yêu cầu, thiết kế workflow, điều phối phát triển và tích hợp, hỗ trợ triển khai và cải tiến hệ thống production."
-  }
+    period: '12/2025 — Nay',
+    title: 'Chuyên viên Sản phẩm & Kỹ thuật',
+    organization: 'Vin Smart Future',
+    logo: '/assets/VSF.png',
+    description:
+      'Làm việc ở cả mảng sản phẩm, kỹ thuật và vận hành — phân tích yêu cầu, thiết kế luồng, điều phối phát triển và tích hợp, hỗ trợ triển khai và cải tiến hệ thống production.',
+  },
 ]

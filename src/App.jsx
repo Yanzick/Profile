@@ -56,6 +56,57 @@ const X = () => (
   </svg>
 )
 
+
+function getExperienceLogo(item) {
+  if (item?.logo) return item.logo
+
+  const searchableText = [
+    item?.company,
+    item?.organization,
+    item?.role,
+    item?.title,
+  ]
+    .filter(Boolean)
+    .join(' ')
+    .toLowerCase()
+
+  if (
+    searchableText.includes('university of science') ||
+    searchableText.includes('vnu-hcm') ||
+    searchableText.includes('khoa học tự nhiên') ||
+    searchableText.includes('đhqg-hcm') ||
+    searchableText.includes('hcmus')
+  ) {
+    return '/assets/HCMUS.png'
+  }
+
+  if (
+    searchableText.includes('pha distribution') ||
+    searchableText.includes('pha việt nam') ||
+    searchableText.includes('pha vietnam') ||
+    searchableText.includes(' pha ')
+  ) {
+    return '/assets/PHA.png'
+  }
+
+  if (
+    searchableText.includes('golabs') ||
+    searchableText.includes('go labs')
+  ) {
+    return '/assets/golabs.png'
+  }
+
+  if (
+    searchableText.includes('vsf') ||
+    searchableText.includes('vin smart future') ||
+    searchableText.includes('vinsmart future')
+  ) {
+    return '/assets/VSF.png'
+  }
+
+  return null
+}
+
 function SectionTitle({ eyebrow, title, description }) {
   return (
     <div className="section-heading reveal">
@@ -175,6 +226,7 @@ function App() {
   ]
 
   const [menuOpen, setMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('')
   const [selectedProject, setSelectedProject] = useState(null)
 
   const [contactOpen, setContactOpen] = useState(false)
@@ -282,6 +334,24 @@ function App() {
       handlePointerUp
     )
   }
+  const handleNavClick = (event, id) => {
+    event.preventDefault()
+
+    const target = document.getElementById(id)
+
+    setMenuOpen(false)
+    setActiveSection(id)
+
+    if (!target) return
+
+    target.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    })
+
+    window.history.replaceState(null, '', `#${id}`)
+  }
+
   const toggleLanguage = () => {
     const nextLanguage = language === 'en' ? 'vi' : 'en'
 
@@ -399,18 +469,65 @@ function App() {
   }, [selectedProject])
 
   useEffect(() => {
+    const sectionIds = [
+      'about',
+      'skills',
+      'projects',
+      'experience',
+      'deployment-links',
+      'contact',
+    ]
+
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean)
+
+    if (!sections.length) return undefined
+
+    // Scroll-spy only: this observer updates the active menu item.
+    // It does NOT add any animation classes, avoiding duplicate effects.
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntries = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
+
+        if (visibleEntries[0]) {
+          setActiveSection(visibleEntries[0].target.id)
+        }
+      },
+      {
+        threshold: [0.12, 0.25, 0.45],
+        rootMargin: '-18% 0px -48% 0px',
+      },
+    )
+
+    sections.forEach((section) => observer.observe(section))
+
+    return () => observer.disconnect()
+  }, [language])
+
+  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
+          // Replay the EXISTING .reveal transition whenever the element
+          // fully leaves the viewport and later comes back.
+          //
+          // Add only after a meaningful amount is visible so the animation
+          // does not feel too eager while scrolling.
+          if (entry.intersectionRatio >= 0.14) {
             entry.target.classList.add('visible')
-            observer.unobserve(entry.target)
+          } else if (!entry.isIntersecting) {
+            // Reset only after it is completely outside the viewport.
+            // This prevents flicker / repeated animation near the threshold.
+            entry.target.classList.remove('visible')
           }
         })
       },
       {
-        threshold: 0.08,
-        rootMargin: '0px 0px -24px 0px',
+        threshold: [0, 0.14],
+        rootMargin: '0px 0px -6% 0px',
       },
     )
 
@@ -438,7 +555,13 @@ function App() {
 
         <nav className={`nav ${menuOpen ? 'open' : ''}`}>
           {nav.map(([id, label]) => (
-            <a key={id} href={`#${id}`} onClick={() => setMenuOpen(false)}>
+            <a
+              key={id}
+              href={`#${id}`}
+              className={activeSection === id ? 'active' : ''}
+              aria-current={activeSection === id ? 'page' : undefined}
+              onClick={(event) => handleNavClick(event, id)}
+            >
               {label}
             </a>
           ))}
@@ -653,11 +776,16 @@ function App() {
               <span><MapPin /> {profile.location}</span>
             </div>
 
-            <div className="hero-highlights reveal">
-              {profile.stats.map((item) => (
-                <div className="hero-highlight-card" key={item.label}>
-                  <strong>{item.value}</strong>
-                  <span>{item.label}</span>
+            <div className="about-pillars reveal">
+              {(profile.stats2 ?? []).map((item) => (
+                <div className="about-pillar-card" key={item.label}>
+                  <span className="about-pillar-title">
+                    {item.label}
+                  </span>
+
+                  <span className="about-pillar-description">
+                    {item.description}
+                  </span>
                 </div>
               ))}
             </div>
@@ -688,7 +816,7 @@ function App() {
           </div>
         </section>
 
-        <section id="about" className="section container">
+        <section id="about" className="section container section-motion">
           <SectionTitle
             eyebrow={ui.sectionAbout.eyebrow}
             title={ui.sectionAbout.title}
@@ -712,7 +840,7 @@ function App() {
           </div>
         </section>
 
-        <section id="skills" className="section container">
+        <section id="skills" className="section container section-motion">
           <SectionTitle
             eyebrow={ui.sectionSkills.eyebrow}
             title={ui.sectionSkills.title}
@@ -735,7 +863,7 @@ function App() {
           </div>
         </section>
 
-        <section id="projects" className="section container">
+        <section id="projects" className="section container section-motion">
           <SectionTitle
             eyebrow={ui.sectionProjects.eyebrow}
             title={ui.sectionProjects.title}
@@ -767,24 +895,48 @@ function App() {
           </div>
         </section>
 
-        <section id="experience" className="section container">
+        <section id="experience" className="section container section-motion">
           <SectionTitle eyebrow={ui.sectionExperience.eyebrow} title={ui.sectionExperience.title} />
           <div className="timeline">
-            {experience.map((item) => (
-              <article className="timeline-item reveal" key={`${item.period}-${item.role}`}>
-                <div className="timeline-dot" />
-                <div className="timeline-period">{item.period}</div>
-                <div className="timeline-content">
-                  <h3>{item.role}</h3>
-                  <span>{item.company}</span>
-                  <p>{item.description}</p>
-                </div>
-              </article>
-            ))}
+            {experience.map((item) => {
+              const experienceRole = item.role ?? item.title ?? ''
+              const experienceCompany = item.company ?? item.organization ?? ''
+              const organizationLogo = getExperienceLogo(item)
+
+              return (
+                <article
+                  className="timeline-item reveal"
+                  key={`${item.period}-${experienceRole}-${experienceCompany}`}
+                >
+                  <div className="timeline-period">{item.period}</div>
+
+                  <div
+                    className={`timeline-logo-node ${organizationLogo ? 'has-logo' : ''}`}
+                    aria-hidden="true"
+                  >
+                    {organizationLogo ? (
+                      <img
+                        src={organizationLogo}
+                        alt=""
+                        loading="lazy"
+                      />
+                    ) : (
+                      <span />
+                    )}
+                  </div>
+
+                  <div className="timeline-content">
+                    <h3>{experienceRole}</h3>
+                    <span>{experienceCompany}</span>
+                    <p>{item.description}</p>
+                  </div>
+                </article>
+              )
+            })}
           </div>
         </section>
 
-        <section id="deployment-links" className="section container deployment-links-section">
+        <section id="deployment-links" className="section container deployment-links-section section-motion">
           <SectionTitle
             eyebrow={ui.sectionDeploymentLinks.eyebrow}
             title={ui.sectionDeploymentLinks.title}
@@ -844,7 +996,7 @@ function App() {
           </div>
         </section>
 
-        <section id="contact" className="section container contact-section">
+        <section id="contact" className="section container contact-section section-motion">
           <div className="contact-card reveal">
             <span className="eyebrow">{ui.sectionContact.eyebrow}</span>
             <h2>{ui.sectionContact.title}<br />{ui.sectionContact.subtitle}</h2>
