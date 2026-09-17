@@ -1121,7 +1121,7 @@ button, input, textarea { font: inherit; }
   }
   .hero-quick-panel { left: 18px; right: 18px; bottom: 18px; }
   .code-a { left: 22px; top: 22px; }
-  .code-b { right: 22px; top: 90px; }
+  .code-b { right: 10px; top: 90px; }
   .code-c { left: 22px; bottom: 116px; }
 
   .section { padding: 78px 0; }
@@ -3757,11 +3757,17 @@ body {
 
 
 /* tablet / mobile */
+/* Keep Embedded / IoT badge in the same position on mobile */
 @media (max-width: 720px) {
-  .code-c {
-    left: calc(50% - 24px) !important;
-    top: 350px !important;
+  .portrait-card .code-c {
+    left: 90px !important;
+    top: 290px !important;
+
+    right: auto !important;
+    bottom: auto !important;
+
     transform: translateX(-50%) !important;
+    color: #168465 !important;
   }
 }
 
