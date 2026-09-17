@@ -3846,3 +3846,64 @@ body {
       0 0 6px rgba(22, 184, 137, 0.18);
   }
 }
+/* =========================================
+   FIX MOBILE NAV OVERLAY
+   ========================================= */
+@media (max-width: 768px) {
+  .topbar {
+    position: relative;
+    z-index: 1000;
+  }
+
+  .nav {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 16px;
+    right: 16px;
+
+    padding: 12px;
+
+    background: #ffffff !important;
+    opacity: 1 !important;
+
+    border: 1px solid rgba(22, 184, 137, 0.14);
+    border-radius: 20px;
+
+    box-shadow:
+      0 20px 50px rgba(15, 45, 48, 0.14),
+      0 6px 18px rgba(15, 45, 48, 0.08);
+
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+
+    z-index: 999;
+    overflow: hidden;
+  }
+
+  .nav a {
+    position: relative;
+    z-index: 2;
+
+    display: block;
+    width: 100%;
+
+    padding: 14px 14px;
+
+    color: #557074 !important;
+    opacity: 1 !important;
+
+    border-radius: 12px;
+
+    background: transparent;
+  }
+
+  .nav a.active {
+    color: #078c6d !important;
+    background: #eaf8f4 !important;
+  }
+
+  .nav a:hover {
+    color: #078c6d !important;
+    background: #f1faf7;
+  }
+}
