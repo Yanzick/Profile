@@ -64,7 +64,7 @@ export const ui = {
   "outcomeLabel": "Kết quả",
   "closeProjectLabel": "Đóng chi tiết dự án",
   "skillLevels": {
-    "Master": "Chuyên sâu",
+    "Master": "Thành thạo",
     "Advanced": "Nâng cao"
   },
   "contactForm": {
@@ -327,16 +327,17 @@ export const projects = [
       {
         "period": "12/2025 — 03/2026",
         "organization": "VSF",
-        "title": "Triển khai FUTA & mở rộng đa ví",
+        "title": "Triển khai FUTA — Mở rộng GoAFC lên 2.000+ xe buýt tại TP.HCM & tích hợp đa ví",
         "focusRole": "Tích hợp thanh toán & điều phối triển khai",
-        "description": "Hoàn tất triển khai cho FUTA và mở rộng GoAFC với Viettel Money, ZaloPay và ShopeePay.",
+        "description": "Tham gia triển khai GoAFC cho FUTA, mở rộng quy mô vận hành lên hơn 2.000 xe buýt tại TP.HCM và tích hợp thêm các phương thức thanh toán qua Viettel Money, ZaloPay và ShopeePay.",
         "responsibilities": [
-          "Định nghĩa và làm rõ luồng giao dịch cho từng tích hợp ví điện tử.",
-          "Điều phối yêu cầu giữa đối tác thanh toán, đội phát triển, POS và vận hành.",
-          "Chuẩn bị các kịch bản kiểm thử chức năng và ngoại lệ.",
-          "Theo dõi lỗi tích hợp xuyên suốt quá trình kiểm thử và triển khai production."
+          "Phân tích, định nghĩa và làm rõ luồng giao dịch cho từng phương thức thanh toán và các trường hợp ngoại lệ.",
+          "Điều phối yêu cầu kỹ thuật giữa đối tác thanh toán, Backend, POS và đội vận hành.",
+          "Xây dựng kịch bản kiểm thử cho các luồng thanh toán, xử lý lỗi và tình huống bất thường.",
+          "Theo dõi, phân tích và phối hợp xử lý các lỗi tích hợp trong quá trình kiểm thử, rollout và vận hành production.",
+          "Hỗ trợ điều phối triển khai thiết bị và xác nhận tính ổn định của hệ thống trong quá trình mở rộng quy mô."
         ],
-        "outcome": "Mở rộng GoAFC thành nền tảng thanh toán đa ví đồng thời hoàn tất rollout cho các đơn vị vận tải mục tiêu tại TP.HCM."
+        "outcome": "Hoàn tất triển khai GoAFC cho FUTA, góp phần mở rộng hệ thống lên hơn 2.000 xe buýt tại TP.HCM và phát triển nền tảng thanh toán theo hướng đa ví, đa đối tác."
       },
       {
         "period": "01/2026 — 05/2026",
