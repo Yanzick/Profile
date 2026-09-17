@@ -784,7 +784,7 @@ export const experience = [
     period: '12/2025 — Nay',
     title: 'Chuyên viên Sản phẩm & Kỹ thuật',
     organization: 'Vin Smart Future',
-    logo: '/assets/VSF.png',
+    logo: '/assets/VSF-short.png',
     description:
       'Làm việc ở cả mảng sản phẩm, kỹ thuật và vận hành — phân tích yêu cầu, thiết kế luồng, điều phối phát triển và tích hợp, hỗ trợ triển khai và cải tiến hệ thống production.',
   },
