@@ -3907,3 +3907,26 @@ body {
     background: #f1faf7;
   }
 }
+
+@media (max-width: 720px) {
+  /* Tăng chiều cao card để tạo thêm khoảng thở */
+  .portrait-card {
+    height: 610px !important;
+    min-height: 610px !important;
+  }
+
+  /* Giữ Focus Areas sát đáy card */
+  .hero-quick-panel {
+    top: auto !important;
+    bottom: 18px !important;
+  }
+
+  /* Giữ badge ở vị trí hiện tại */
+  .portrait-card .code-c {
+    left: 90px !important;
+    top: 335px !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: translateX(-50%) !important;
+  }
+}
