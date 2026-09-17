@@ -44,6 +44,29 @@ const Github = ({ size = 18 }) => (
   </svg>
 )
 
+const LinkedIn = ({ size = 18 }) => (
+  <span
+    style={{
+      width: size,
+      height: size,
+      border: '1.6px solid currentColor',
+      borderRadius: '3px',
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontSize: `${size * 0.55}px`,
+      fontWeight: 800,
+      lineHeight: 1,
+      background: 'transparent',
+      color: 'currentColor',
+      boxSizing: 'border-box',
+    }}
+    aria-hidden="true"
+  >
+    in
+  </span>
+)
+
 const Menu = () => (
   <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
     <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
@@ -1013,6 +1036,17 @@ function App() {
                 <Mail />
                 {profile.email}
               </button>
+
+              <a
+                className="button ghost contact-linkedin"
+                href="https://www.linkedin.com/in/tntan3012"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn profile"
+              >
+                <LinkedIn />
+                LinkedIn
+              </a>
 
               <a
                 className="text-link"

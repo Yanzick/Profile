@@ -3764,3 +3764,49 @@ body {
     transform: translateX(-50%) !important;
   }
 }
+
+.contact-linkedin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+
+  min-height: 54px;
+  padding: 0 22px;
+
+  border: 1px solid #0b1618;
+  border-radius: 15px;
+
+  background: #0b1618;
+  color: #ffffff;
+
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+
+  transition:
+    background .25s ease,
+    color .25s ease,
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+.contact-linkedin svg {
+  width: 19px;
+  height: 19px;
+  fill: currentColor;
+}
+
+.contact-linkedin:hover {
+  background: #ffffff;
+  color: #0b1618;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(11, 22, 24, .12);
+}
+
+@media (max-width: 720px) {
+  .contact-linkedin {
+    min-height: 50px;
+    padding: 0 18px;
+  }
+}
